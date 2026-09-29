@@ -1,12 +1,15 @@
 import argparse
-import os
 import struct
-import sys
 
 import numpy as np
 import torch
 
 sys.path.insert(0, r"E:\didaktoriko\diffusion_solution\linear_lss")
+import os
+import sys
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+for _d in ("models", "preprocessing", "inference", "blendings"):
+    sys.path.insert(0, os.path.join(_ROOT, _d))
 from model import VolumetricModelPCA
 from blend_utils import load_bones, resample_frames, resampled_root_transform
 from lss_linear import relative_bones, DEVICE

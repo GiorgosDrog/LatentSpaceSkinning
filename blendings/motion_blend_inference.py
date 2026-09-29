@@ -1,6 +1,10 @@
-import os
 import numpy as np
 import torch
+import os
+import sys
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+for _d in ("models", "preprocessing", "inference", "blendings"):
+    sys.path.insert(0, os.path.join(_ROOT, _d))
 from scipy.spatial.transform import Rotation
 
 from model import VolumetricModelPCA
